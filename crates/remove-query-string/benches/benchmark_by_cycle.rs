@@ -1,5 +1,3 @@
-use iai::main;
-
 use remove_query_string::*;
 
 fn bench_remove_query_string() -> String {
