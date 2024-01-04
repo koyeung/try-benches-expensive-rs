@@ -12,11 +12,16 @@ repository.workspace = true
 [dev-dependencies]
 criterion = { workspace = true, features = ["html_reports"] }
 iai.workspace = true
+iai-callgrind.workspace = true
 
 [[bench]]
 name = "benchmark_by_time"
 harness = false
 
 [[bench]]
-name = "benchmark_by_cycle"
+name = "benchmark_by_cachegrind"
+harness = false
+
+[[bench]]
+name = "benchmark_by_callgrind"
 harness = false

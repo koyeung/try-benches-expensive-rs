@@ -64,4 +64,6 @@ jobs:
     - uses: dtolnay/rust-toolchain@stable
 
     - run: cargo build --workspace --verbose
-    - run: cargo test --benches --workspace --verbose
+
+    # can't run with --benches since iai-callgrind require iai-callgrind-runner exists
+    - run: cargo test --workspace --verbose
