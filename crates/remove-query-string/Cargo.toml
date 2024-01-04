@@ -8,8 +8,15 @@ repository.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[dev-dependencies]
 criterion = { workspace = true, features = ["html_reports"] }
+iai.workspace = true
 
 [[bench]]
 name = "benchmark_by_time"
+harness = false
+
+[[bench]]
+name = "benchmark_by_cycle"
 harness = false

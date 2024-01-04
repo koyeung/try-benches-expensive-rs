@@ -2,7 +2,7 @@ use criterion::{criterion_group, criterion_main, Criterion};
 
 use remove_query_string::*;
 
-fn criterion_benchmark(c: &mut Criterion) {
+fn bench_remove_query_string(c: &mut Criterion) {
     c.bench_function("format", move |b| {
         let query_str = "abc&cd=ef&world";
         b.iter(|| remove_query_string(query_str, &"cd"))
@@ -14,5 +14,5 @@ fn criterion_benchmark(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches, criterion_benchmark);
+criterion_group!(benches, bench_remove_query_string);
 criterion_main!(benches);

@@ -11,6 +11,7 @@ repository = "https://github.com/koyeung/try-rs-benches/"
 
 [workspace.dependencies]
 criterion = "0.5.1"
+iai = "0.1.1"
 
 [profile.release]
 opt-level = 3
