@@ -17,8 +17,10 @@ iai-callgrind = "0.10.2"
 [profile.release]
 codegen-units = 1
 lto = true
-opt-level = 3
 panic = "abort"
+strip = true
 
 [profile.bench]
 debug = true
+# don't strip, otherwise, unable to do iai-callgrind
+strip = "none"
