@@ -19,7 +19,6 @@ codegen-units = 1
 lto = true
 opt-level = 3
 panic = "abort"
-strip = true
 
 [profile.bench]
 debug = true
