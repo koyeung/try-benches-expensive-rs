@@ -12,7 +12,7 @@ repository.workspace = true
 [dev-dependencies]
 criterion = { workspace = true, features = ["html_reports"] }
 iai.workspace = true
-iai-callgrind.workspace = true
+iai-callgrind = { workspace = true, features = ["client_requests"] }
 
 [[bench]]
 name = "benchmark_by_time"
