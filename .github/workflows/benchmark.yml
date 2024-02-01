@@ -44,6 +44,11 @@ jobs:
 
     - name: Install iai-callgrind-runner
       # https://github.com/iai-callgrind/iai-callgrind#installation
-      run: cargo install iai-callgrind-runner --locked
+      run: |
+        version=$(cargo metadata --format-version=1 |\
+          jq '.packages[] | select(.name == "iai-callgrind").version' |\
+          tr -d '"'
+        )
+        cargo install iai-callgrind-runner --version $version
 
     - run: cargo bench -p remove-query-string --bench benchmark_by_callgrind
