@@ -51,4 +51,4 @@ jobs:
         )
         cargo install iai-callgrind-runner --version $version
 
-    - run: cargo bench -p remove-query-string --bench benchmark_by_callgrind
+    - run: cargo bench -p remove-query-string --bench factorial
