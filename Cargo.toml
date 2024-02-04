@@ -15,12 +15,14 @@ iai = "0.1.1"
 iai-callgrind = "0.10.2"
 
 [profile.release]
+# https://doc.rust-lang.org/cargo/reference/profiles.html#release
 codegen-units = 1
 lto = true
 panic = "abort"
 strip = true
 
 [profile.bench]
+# https://doc.rust-lang.org/cargo/reference/profiles.html#bench
 debug = true
 # don't strip, otherwise, unable to do iai-callgrind
 strip = "none"
