@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: mozilla-actions/sccache-action@v0.0.4
+    - uses: mozilla-actions/sccache-action@v0.0.5
     - uses: dtolnay/rust-toolchain@stable
 
     - run: sudo apt-get -y install valgrind
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: mozilla-actions/sccache-action@v0.0.4
+    - uses: mozilla-actions/sccache-action@v0.0.5
     - uses: dtolnay/rust-toolchain@stable
     - name: Cache Cargo dependencies
       uses: Swatinem/rust-cache@v2
