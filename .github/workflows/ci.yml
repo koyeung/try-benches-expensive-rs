@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: mozilla-actions/sccache-action@v0.0.5
+    - uses: mozilla-actions/sccache-action@v0.0.6
     - uses: dtolnay/rust-toolchain@stable
       with:
         components: rustfmt, clippy
@@ -48,7 +48,7 @@ jobs:
     - run: cargo verify-project
 
     - name: Detect unused dependencies
-      uses: bnjbvr/cargo-machete@v0.6.2
+      uses: bnjbvr/cargo-machete@v0.7.0
 
     - run: cargo fmt --check --all
     - run: cargo clippy --workspace -- -D warnings
@@ -60,7 +60,7 @@ jobs:
     needs: check
     steps:
     - uses: actions/checkout@v4
-    - uses: mozilla-actions/sccache-action@v0.0.5
+    - uses: mozilla-actions/sccache-action@v0.0.6
     - uses: dtolnay/rust-toolchain@stable
 
     - run: cargo build --workspace --verbose
