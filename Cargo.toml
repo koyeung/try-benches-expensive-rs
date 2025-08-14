@@ -10,9 +10,9 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/koyeung/try-rs-benches/"
 
 [workspace.dependencies]
-criterion = "0.5.1"
+criterion = "0.7.0"
 iai = "0.1.1"
-iai-callgrind = "0.14.0"
+iai-callgrind = "0.16.1"
 
 [profile.release]
 # https://doc.rust-lang.org/cargo/reference/profiles.html#release
