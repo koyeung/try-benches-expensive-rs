@@ -10,7 +10,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/koyeung/try-rs-benches/"
 
 [workspace.dependencies]
-criterion = "0.7.0"
+criterion = "0.8.1"
 iai = "0.1.1"
 iai-callgrind = "0.16.1"
 
