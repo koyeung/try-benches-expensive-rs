@@ -24,7 +24,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: sudo apt-get -y install valgrind
       - run: cargo bench -p remove-query-string --bench benchmark_by_cachegrind
-  iai-callgrind:
+  gungraun:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -34,13 +34,14 @@ jobs:
       - uses: mozilla-actions/sccache-action@v0.0.9
       - uses: dtolnay/rust-toolchain@stable
       - run: sudo apt-get -y install valgrind
-      - name: Install iai-callgrind-runner
-        # https://github.com/iai-callgrind/iai-callgrind#installation
-        # to match iai-callgrind-runner and iai-callgrind version
+
+      - uses: taiki-e/install-action@cargo-binstall
+      - name: Install gungraun-runner
         run: |
           version=$(cargo metadata --format-version=1 |\
-            jq '.packages[] | select(.name == "iai-callgrind").version' |\
+            jq '.packages[] | select(.name == "gungraun").version' |\
             tr -d '"'
           )
-          cargo install iai-callgrind-runner --version $version --locked
+          cargo binstall --no-confirm gungraun-runner --version $version
+
       - run: cargo bench -p remove-query-string --bench benchmark_by_callgrind
