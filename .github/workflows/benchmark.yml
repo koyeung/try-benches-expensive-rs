@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: Swatinem/rust-cache@v2
         with:
           shared-key: "${{ github.workflow }}"
@@ -29,6 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: Swatinem/rust-cache@v2
         with:
           shared-key: "${{ github.workflow }}"
@@ -36,7 +40,10 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: sudo apt-get -y install valgrind
 
-      - uses: taiki-e/install-action@cargo-binstall
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-binstall
+
       - name: Install gungraun-runner
         run: |
           version=$(cargo metadata --format-version=1 |\
