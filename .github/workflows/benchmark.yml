@@ -50,6 +50,9 @@ jobs:
             jq '.packages[] | select(.name == "gungraun").version' |\
             tr -d '"'
           )
-          cargo binstall --no-confirm gungraun-runner --version $version
+          # --force is needed;
+          # otherwise, it reports gungraun-runner installed already incorrectly
+          # and skip installation
+          cargo binstall --no-confirm gungraun-runner --force --version $version
 
       - run: cargo bench -p remove-query-string --bench benchmark_by_callgrind
