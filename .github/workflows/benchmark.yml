@@ -20,24 +20,33 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
+
       - uses: Swatinem/rust-cache@v2
         with:
           shared-key: "${{ github.workflow }}"
+
       - uses: mozilla-actions/sccache-action@v0.0.9
+
       - uses: dtolnay/rust-toolchain@stable
+
       - run: sudo apt-get -y install valgrind
       - run: cargo bench -p remove-query-string --bench benchmark_by_cachegrind
+
   gungraun:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
+
       - uses: Swatinem/rust-cache@v2
         with:
           shared-key: "${{ github.workflow }}"
+
       - uses: mozilla-actions/sccache-action@v0.0.9
+
       - uses: dtolnay/rust-toolchain@stable
+
       - run: sudo apt-get -y install valgrind
 
       - uses: taiki-e/install-action@v2
