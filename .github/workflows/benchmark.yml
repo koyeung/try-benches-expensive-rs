@@ -49,7 +49,7 @@ jobs:
 
       - run: sudo apt-get -y install valgrind
 
-      - uses: taiki-e/install-action@v2.75.14
+      - uses: taiki-e/install-action@v2.75.19
         with:
           tool: cargo-binstall
 
