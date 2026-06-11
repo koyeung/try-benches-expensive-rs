@@ -2,10 +2,7 @@
 # See https://prek.j178.dev for more information.
 #:schema https://www.schemastore.org/prek.json
 
-default_install_hook_types = [
-  "pre-commit",
-  "commit-msg"
-  ]
+default_install_hook_types = ["pre-commit", "commit-msg"]
 default_stages = ["pre-commit"]
 
 [[repos]]
@@ -17,10 +14,7 @@ hooks = [
   { id = "check-executables-have-shebangs" },
   { id = "check-json" },
   { id = "check-merge-conflict" },
-  {
-    id = "check-shebang-scripts-are-executable",
-    exclude = '.*\.rs$'
-  },
+  { id = "check-shebang-scripts-are-executable", exclude = '.*\.rs$' },
   { id = "check-symlinks" },
   { id = "check-toml" },
   { id = "check-vcs-permalinks" },
@@ -28,65 +22,40 @@ hooks = [
   { id = "check-yaml" },
   { id = "debug-statements" },
   { id = "destroyed-symlinks" },
-  {
-    id = "detect-aws-credentials",
-    args = ["--allow-missing-credentials"]
-  },
+  { id = "detect-aws-credentials", args = ["--allow-missing-credentials"] },
   { id = "detect-private-key" },
   { id = "end-of-file-fixer" },
   { id = "fix-byte-order-marker" },
   { id = "mixed-line-ending" },
-  {
-    id = "pretty-format-json",
-    args = ["--autofix"]
-  },
+  { id = "pretty-format-json", args = ["--autofix"] },
   { id = "trailing-whitespace" }
 ]
 
 [[repos]]
 repo = "https://github.com/crate-ci/typos"
 rev = "v1.45.0"
-hooks = [
-  { id = "typos" }
-]
+hooks = [{ id = "typos" }]
 
 [[repos]]
-repo = "https://github.com/google/yamlfmt"
-rev = "v0.21.0"
-hooks = [
-  { id = "yamlfmt" }
-]
+repo = "https://github.com/adrienverge/yamllint"
+rev = "v1.38.0"
+hooks = [{ id = "yamllint", args = ["--strict"] }]
 
 [[repos]]
 repo = "https://github.com/doublify/pre-commit-rust"
 rev = "v1.0"
 hooks = [
   { id = "fmt" },
-  {
-    id = "cargo-check",
-    args = ["--workspace"]
-  },
-  {
-    id = "clippy",
-    args = [
-      "--workspace",
-      "--",
-      "-D",
-      "warnings"
-    ]
-  }
+  { id = "cargo-check", args = ["--workspace"] },
+  { id = "clippy", args = ["--workspace", "--", "-D", "warnings"] }
 ]
 
 [[repos]]
 repo = "https://github.com/commitizen-tools/commitizen"
 rev = "v4.13.9"
-hooks = [
-  { id = "commitizen" }
-]
+hooks = [{ id = "commitizen" }]
 
 [[repos]]
 repo = "https://github.com/zizmorcore/zizmor-pre-commit"
 rev = "v1.23.1"
-hooks = [
-  { id = "zizmor" }
-]
+hooks = [{ id = "zizmor" }]
